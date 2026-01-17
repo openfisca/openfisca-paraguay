@@ -1,0 +1,10 @@
+description: Monto mensual de la Pensión Alimentaria para Adultos Mayores (25% del salario mínimo vigente)
+values:
+  2025-01-01: 724762
+metadata:
+  short_label: Pensión Adultos Mayores
+  label_en: Senior Citizens Food Pension
+  unit: currency
+  reference:
+    2025-01-01:
+      title: Ley N° 3728/2009 - Derecho a la pensión alimentaria para adultos mayores

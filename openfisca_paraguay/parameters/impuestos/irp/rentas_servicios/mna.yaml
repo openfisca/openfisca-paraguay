@@ -1,0 +1,11 @@
+description: Monto No Alcanzado (MNA) - Umbral de ingresos brutos anuales para ser contribuyente del IRP-RSP
+values:
+  2020-01-01: 80000000
+metadata:
+  short_label: MNA IRP-RSP
+  label_en: IRP Non-Taxable Threshold
+  unit: currency
+  reference:
+    2020-01-01:
+      title: Ley N° 6380/2019 - De Modernización y Simplificación del Sistema Tributario Nacional
+      href: https://www.bacn.gov.py/leyes-paraguayas/9580/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional

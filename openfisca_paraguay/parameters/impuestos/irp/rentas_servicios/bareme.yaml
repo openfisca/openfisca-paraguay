@@ -1,0 +1,20 @@
+description: Escala de tasas progresivas sobre la Renta Neta Imponible (IRP-RSP)
+brackets:
+  - threshold:
+      2020-01-01: 0
+    rate:
+      2020-01-01: 0.08
+  - threshold:
+      2020-01-01: 50000000
+    rate:
+      2020-01-01: 0.09
+  - threshold:
+      2020-01-01: 150000000
+    rate:
+      2020-01-01: 0.10
+metadata:
+  short_label: Tasas IRP-RSP
+  label_en: IRP Progressive Tax Rates
+  reference:
+    2020-01-01:
+      title: Ley N° 6380/2019 - Art. 69

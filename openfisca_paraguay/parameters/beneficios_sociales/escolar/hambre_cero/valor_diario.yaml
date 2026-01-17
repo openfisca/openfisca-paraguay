@@ -1,0 +1,10 @@
+description: Valor monetario equivalente diario por estudiante del Programa Hambre Cero
+values:
+  2025-01-01: 15000
+metadata:
+  short_label: Valor Hambre Cero
+  label_en: Zero Hunger Daily Value
+  unit: currency
+  reference:
+    2025-01-01:
+      title: Ley N° 7264/2024 - Que crea el Fondo Nacional de Alimentación Escolar

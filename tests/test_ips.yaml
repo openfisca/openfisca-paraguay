@@ -1,0 +1,15 @@
+- name: Comparación salario imponible IPS sin tope
+  period: 2025-01
+  input:
+    salario_bruto: 2_000_000
+  output:
+    salario_imponible_ips: 2_000_000
+
+- name: Comparación salario imponible IPS con tope (aplica tope de 20 SM? No, 12 SM en params but maybe my formula uses logic)
+# Let's check parameters: tope is 12 SM. SM in 2025-01 is 2,798,309 (until july 2025).
+# 12 * 2,798,309 = 33,579,708.
+  period: 2025-01
+  input:
+    salario_bruto: 40_000_000
+  output:
+    salario_imponible_ips: 33_579_708

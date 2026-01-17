@@ -1,0 +1,13 @@
+description: Salario mínimo legal mensual para actividades diversas no especificadas
+values:
+  2024-07-01: 2798309
+  2025-07-01: 2899048
+metadata:
+  short_label: Salario Mínimo Legal
+  label_en: Legal Minimum Monthly Wage
+  unit: currency
+  reference:
+    2024-07-01:
+      title: Decreto del Poder Ejecutivo (Julio 2024)
+    2025-07-01:
+      title: Decreto del Poder Ejecutivo (Julio 2025)

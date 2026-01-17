@@ -1,0 +1,3 @@
+from openfisca_paraguay.paraguay_taxbenefitsystem import ParaguayTaxBenefitSystem
+
+CountryTaxBenefitSystem = ParaguayTaxBenefitSystem
