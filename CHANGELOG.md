@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.0
+## 0.2.0 [#PR_NUMBER](https://github.com/openfisca/openfisca-paraguay/pull/PR_NUMBER)
 
 * **Enhancements**:
     * Added `parameters/units.yaml` with definitions for Guaraní currency, percentages, and years.
