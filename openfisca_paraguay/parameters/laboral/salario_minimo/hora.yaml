@@ -1,3 +1,6 @@
 description: Salario mínimo por hora (para empleo parcial)
 values:
   2025-07-01: 12080
+metadata:
+  unit: currency
+  short_label: Salario Mínimo Hora

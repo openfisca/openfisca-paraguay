@@ -1,3 +1,6 @@
 description: Bono para personas con discapacidad
 values:
   2025-01-01: 300000
+metadata:
+  unit: currency
+  short_label: Bono Discapacidad

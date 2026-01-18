@@ -1,3 +1,6 @@
 description: Jornal mínimo diario
 values:
   2025-07-01: 111502
+metadata:
+  unit: currency
+  short_label: Jornal Mínimo

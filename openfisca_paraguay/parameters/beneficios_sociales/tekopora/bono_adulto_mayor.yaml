@@ -1,3 +1,6 @@
 description: Bono para Adultos Mayores (>65 sin pensión)
 values:
   2025-01-01: 250000
+metadata:
+  unit: currency
+  short_label: Bono Adulto Mayor
