@@ -1,8 +1,3 @@
-> This file defines the rules to follow to contribute to your repository. The
-> rules suggested here are what we generally use for OpenFisca country
-> packages. You can of course edit them, and you should probably remove this
-> block :)
-
 Thank you for wanting to contribute to OpenFisca! :smiley:
 
 TL;DR: [GitHub Flow](https://guides.github.com/introduction/flow/),
@@ -57,7 +52,7 @@ Examples:
 
 ### Changelog
 
-openfisca-country_template changes must be understood by users who don't
+openfisca-paraguay changes must be understood by users who don't
 necessarily work on the code. The Changelog must therefore be as explicit as
 possible.
 

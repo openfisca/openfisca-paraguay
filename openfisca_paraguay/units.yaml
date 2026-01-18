@@ -1,0 +1,18 @@
+- name: currency
+  label:
+    one: Guaraní
+    other: Guaraníes
+  short_label: ₲
+- name: /1
+  label:
+    one: porcentaje
+    other: porcentajes
+  ratio: true
+  short_label: "%"
+- name: year
+  label:
+    one: año
+    other: años
+  short_label:
+    one: año
+    other: años

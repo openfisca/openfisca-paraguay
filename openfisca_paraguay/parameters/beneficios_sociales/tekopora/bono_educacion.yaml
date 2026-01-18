@@ -1,3 +1,6 @@
 description: Bono de Educación (por niño 6-18 años con asistencia)
 values:
   2025-01-01: 100000
+metadata:
+  unit: currency
+  short_label: Bono Educación

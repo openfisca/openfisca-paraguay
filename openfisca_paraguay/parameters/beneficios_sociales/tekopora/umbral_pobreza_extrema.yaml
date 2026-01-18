@@ -1,3 +1,6 @@
 description: Línea de pobreza extrema per cápita mensual
 values:
   2024-01-01: 293000
+metadata:
+  unit: currency
+  short_label: Umbral Pobreza Extrema
