@@ -1,11 +1,17 @@
-**Description:**
+Gracias por contribuir a OpenFisca! Por favor elimina esta línea, así como, para cada línea de abajo, los casos que no sean relevantes para tu contribución :)
 
-Describe your changes here.
+* Evolución del sistema fiscal y de beneficios. | Mejora técnica. | Arreglo de caída (Crash fix). | Cambio menor.
+* Periodos impactados: todos. | hasta DD/MM/AAAA. | desde DD/MM/AAAA.
+* Áreas impactadas: `ruta/al/archivo/conteniendo/variables/impactadas`
+* Detalles:
+  - Descripción de nueva característica o nuevo comportamiento
+  - Casos en los que se notó un error
 
-**Changelog:**
+- - - -
 
-* [ ] I have updated the CHANGELOG.md file with a description of my changes.
+Estos cambios _(elimina las líneas que no sean relevantes para tu contribución)_:
 
-**Related Issues:**
-
-Fixes # (issue)
+- Impactan la API pública de OpenFisca-Paraguay (por ejemplo renombrando o eliminando una variable)
+- Añaden una nueva característica (por ejemplo añadiendo una variable)
+- Arreglan o mejoran un cálculo ya existente.
+- Cambian partes no funcionales de este repositorio (por ejemplo editando el README)
