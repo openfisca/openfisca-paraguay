@@ -40,3 +40,9 @@ The model implements legislation based on:
 - Law No. 6380/2019 (Tax Modernization)
 - Decree Law No. 1860/1950 (Social Security)
 - Various other laws and decrees defining social benefits (Tekoporã, PAAM, Hambre Cero).
+
+## Roadmap
+
+To verify and improve the model, please refer to our roadmap:
+- [Roadmap (English)](ROADMAP.md)
+- [Hoja de Ruta (Español)](ROADMAP_ES.md)
