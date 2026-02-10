@@ -1,4 +1,6 @@
 description: Edad mínima para acceder al beneficio
 values:
+  2026-01-01:
+    value: 66
   2025-01-01:
     value: 65
