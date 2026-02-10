@@ -1,0 +1,127 @@
+name: Validate, integrate & deploy to tax-benefit.org
+
+on:
+  - push
+  - workflow_dispatch
+
+jobs:
+  deploy_parameters:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Clone Legislation Parameters Explorer
+        run: git clone https://git.leximpact.dev/leximpact/legislation-parameters-explorer.git
+      - name: Install Node.js version LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      - name: Install viewer dependencies
+        run: npm install
+        working-directory: legislation-parameters-explorer/packages/viewer
+      - name: Configure viewer
+        run: |
+          rm -f .env
+          cat > .env << EOF
+          # Customizations to apply to the site (theme, URLs…)
+          CUSTOMIZATION="openfisca"
+
+          DBNOMICS_DATASET_CODE="parameters"
+          DBNOMICS_PROVIDER_CODE="openfisca-paraguay"
+          DBNOMICS_URL="https://db.nomics.world/"
+
+          EDITOR_URL="https://editor.parameters.py.tax-benefit.org/"
+
+          EXPORT_CSV=true
+          EXPORT_JSON=false
+          EXPORT_XLSX=true
+
+          # Path of directory containing legislation parameters of country
+          PARAMETERS_DIR="../../../openfisca_paraguay/parameters/"
+
+          # Description of parameters remote repository
+          PARAMETERS_AUTHOR_EMAIL="editor.parameters.py@tax-benefit.org"
+          PARAMETERS_AUTHOR_NAME="Éditeur des paramètres d'OpenFisca-Paraguay"
+          PARAMETERS_BRANCH="master"
+          PARAMETERS_FORGE_DOMAIN_NAME="github.com"
+          PARAMETERS_FORGE_TYPE="GitHub"
+          PARAMETERS_GROUP="openfisca"
+          PARAMETERS_PROJECT="openfisca-paraguay"
+          PARAMETERS_PROJECT_DIR="openfisca_paraguay/parameters"
+
+          SHOW_LAST_BREADCRUMB_ITEM = false
+
+          TABLE_OF_CONTENTS_DIR="../../../openfisca_paraguay/tables/"
+
+          TITLE="OpenFisca-Paraguay"
+
+          # Path of file containing units used by French legislation parameters
+          UNITS_FILE_PATH="../../../openfisca_paraguay/units.yaml"
+          EOF
+        working-directory: legislation-parameters-explorer/packages/viewer
+      - name: Initialize .svelte-kit directory of viewer
+        run: npx svelte-kit sync
+        working-directory: legislation-parameters-explorer/packages/viewer
+      - name: Generate viewer data
+        run: npx tsx src/scripts/generate_data.ts
+        working-directory: legislation-parameters-explorer/packages/viewer
+      - name: Build viewer
+        run: npm run build
+        working-directory: legislation-parameters-explorer/packages/viewer
+      - name: Configure ssh for deployment to server
+        uses: tanmancan/action-setup-ssh-agent-key@1.0.0
+        with:
+          ssh-auth-sock: /tmp/my_auth.sock
+          ssh-private-key: ${{ secrets.PARAMETERS_EXPLORER_SSH_PRIVATE_KEY }}
+          ssh-public-key: ${{ secrets.PARAMETERS_EXPLORER_SSH_KNOWN_HOSTS }}
+      - name: Deploy to Server using rsync
+        run: rsync -az --delete -e "ssh -J ssh-proxy@parameters.py.tax-benefit.org:2222" build/ parameters.py.tax-benefit.org@10.131.0.2:public_html/
+        working-directory: legislation-parameters-explorer/packages/viewer
+      - name: Update editor parameters data
+        run: ssh -J ssh-proxy@editor.parameters.py.tax-benefit.org:2222 debian@10.130.3.2 "cd openfisca-paraguay && git pull && sudo systemctl restart py-parameters-edit.service"
+
+  deploy_simulator:
+    uses: tax-benefit/actions/.github/workflows/deploy.yml@v2.1.0
+    with:
+      python_package: "openfisca_paraguay"
+    secrets:
+      token: ${{ secrets.CONTROL_CENTER_TOKEN }}
+
+  dbnomics:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure ssh for DBnomics openfisca-paraguay-json-data
+        uses: tanmancan/action-setup-ssh-agent-key@1.0.0
+        with:
+          ssh-auth-sock: /tmp/my_auth.sock
+          ssh-private-key: ${{ secrets.DBNOMICS_SSH_PRIVATE_KEY }}
+          ssh-public-key: ${{ secrets.DBNOMICS_SSH_KNOWN_HOSTS }}
+      - name: Clone DBnomics openfisca-paraguay-json-data
+        run: git clone git@git.nomics.world:dbnomics-json-data/openfisca-paraguay-json-data.git
+      - name: Clone @tax-benefit/openfisca-json-model
+        run: git clone https://git.en-root.org/tax-benefit/openfisca-json-model.git
+      - name: Install @tax-benefit/openfisca-json-model library.
+        run: |
+          npm install
+          npm run build
+        working-directory: openfisca-json-model/packages/lib
+      - name: Generate DBnomics JSON data
+        run: |
+          npm install
+          npx tsx src/scripts/convert_raw_parameters_to_dbnomics.ts -p ../../../openfisca_paraguay/parameters/ --target openfisca-paraguay --units ../../../openfisca_paraguay/units.yaml ../../../openfisca-paraguay-json-data/
+        working-directory: openfisca-json-model/packages/tools
+      - name: Commit & push DBnomics JSON data
+        run: |
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+          git config user.email "paraguay@openfisca.org"
+          git config user.name "OpenFisca-Paraguay"
+          git commit -m "Mise à jour des paramètres d'OpenFisca-Paraguay"
+            git push
+          fi
+        working-directory: openfisca-paraguay-json-data
