@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy_parameters:
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -43,7 +43,7 @@ jobs:
           # Description of parameters remote repository
           PARAMETERS_AUTHOR_EMAIL="editor.parameters.py@tax-benefit.org"
           PARAMETERS_AUTHOR_NAME="Éditeur des paramètres d'OpenFisca-Paraguay"
-          PARAMETERS_BRANCH="master"
+          PARAMETERS_BRANCH="main"
           PARAMETERS_FORGE_DOMAIN_NAME="github.com"
           PARAMETERS_FORGE_TYPE="GitHub"
           PARAMETERS_GROUP="openfisca"
