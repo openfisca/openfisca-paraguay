@@ -1,6 +1,7 @@
 description: Valor monetario equivalente diario por estudiante del Programa Hambre Cero
 values:
-  2025-01-01: 15000
+  2025-01-01:
+    value: 15000
 metadata:
   short_label: Valor Hambre Cero
   label_en: Zero Hunger Daily Value

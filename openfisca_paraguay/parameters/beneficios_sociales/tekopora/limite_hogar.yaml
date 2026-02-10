@@ -1,6 +1,7 @@
 description: Monto máximo de transferencia por hogar
 values:
-  2025-01-01: 1700000
+  2025-01-01:
+    value: 1700000
 metadata:
   unit: currency
   short_label: Límite Hogar

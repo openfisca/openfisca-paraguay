@@ -1,7 +1,9 @@
 description: Tasa de contribución del empleador al Instituto de Previsión Social (Régimen General)
 values:
-  2024-01-01: 0.165
-  2025-01-01: 0.170
+  2024-01-01:
+    value: 0.165
+  2025-01-01:
+    value: 0.170
 metadata:
   short_label: Aporte Patronal IPS
   label_en: IPS Employer Contribution Rate

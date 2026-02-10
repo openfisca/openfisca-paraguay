@@ -1,7 +1,9 @@
 description: Tasa de contribución del trabajador al Instituto de Previsión Social (Régimen General)
 values:
-  2024-01-01: 0.09
-  2025-01-01: 0.095
+  2024-01-01:
+    value: 0.09
+  2025-01-01:
+    value: 0.095
 metadata:
   short_label: Aporte Obrero IPS
   label_en: IPS Employee Contribution Rate

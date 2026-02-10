@@ -1,6 +1,7 @@
 description: Monto mensual de la Pensión Alimentaria para Adultos Mayores (25% del salario mínimo vigente)
 values:
-  2025-01-01: 724762
+  2025-01-01:
+    value: 724762
 metadata:
   short_label: Pensión Adultos Mayores
   label_en: Senior Citizens Food Pension

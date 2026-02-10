@@ -1,6 +1,7 @@
 description: Monto mensual de la pensión
 values:
-  2025-01-01: 869700
+  2025-01-01:
+    value: 869700
 metadata:
   unit: currency
   short_label: Monto Pensión Discapacidad

@@ -1,3 +1,4 @@
 description: Tasa reducida del IVA (canasta básica, medicamentos, alquiler vivienda)
 values:
-  2020-01-01: 0.05
+  2020-01-01:
+    value: 0.05

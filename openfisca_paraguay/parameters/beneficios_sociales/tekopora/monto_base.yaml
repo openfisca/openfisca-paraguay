@@ -1,6 +1,7 @@
 description: Bono de Protección Familiar del Programa Tekoporã (Monto base por hogar)
 values:
-  2025-01-01: 450000
+  2025-01-01:
+    value: 450000
 metadata:
   short_label: Tekoporã Base
   label_en: Tekoporã Basic Household Bonus

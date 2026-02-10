@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1
+
+* **Parameters**:
+    * Aligned all parameter YAML files with strict OpenFisca format: `values` entries now use the `value` key per date (e.g. `2020-01-01: value: 80000000`).
+    * Updated IRP bareme scale: bracket `threshold` and `rate` use `value` per date; added `metadata.type: marginal_rate`, `threshold_unit: currency`, and `rate_unit: /1`.
+
 ## 0.2.0 [#PR_NUMBER](https://github.com/openfisca/openfisca-paraguay/pull/PR_NUMBER)
 
 * **Enhancements**:

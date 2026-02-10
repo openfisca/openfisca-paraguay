@@ -1,3 +1,4 @@
 description: Tasa general del IVA
 values:
-  2020-01-01: 0.10
+  2020-01-01:
+    value: 0.10

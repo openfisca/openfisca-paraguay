@@ -1,3 +1,4 @@
 description: Cantidad de salarios mínimos que constituyen el tope imponible
 values:
-  2020-01-01: 12
+  2020-01-01:
+    value: 12
